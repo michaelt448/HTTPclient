@@ -1,16 +1,11 @@
 var https = require('https');
 
-function getAndPrintHTML () {
+function getAndPrintHTML (options) {
   let bufferingVariable;
-  var requestOptions = {
-    host: 'sytantris.github.io',
-    path: '/http-examples/step2.html'
-  };
 
   /* Add your code here */
 
-console.log(requestOptions.host + requestOptions.path);
-  https.get('https://' + requestOptions.host + requestOptions.path,function(response) {
+  https.get('https://' + options.host + options.path,function(response) {
     if(response.statusCode !== 200) {
       console.log('You have a status problem' , response.status);
     }
@@ -24,5 +19,8 @@ console.log(requestOptions.host + requestOptions.path);
 
 }
 
-
-getAndPrintHTML();
+var requestOptions = {
+  host: 'sytantris.github.io',
+  path: '/http-examples/step3.html'
+};
+getAndPrintHTML(requestOptions); /* Add your code here */
